@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os.path
 from pathlib import Path
 
+from django.conf import STATICFILES_STORAGE_ALIAS
 from django.conf.global_settings import EMAIL_BACKEND, DEFAULT_AUTO_FIELD
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,8 +28,8 @@ SECRET_KEY = 'django-insecure-z8fv4#2hqmbrj(1^ty(6#3rf6y4e#sa%3-+lhce1y2y42x*h5p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = ['.railway.app', '.up.railway.app', 'localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://*.up.railway.app']
 
 # Application definition
 
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    'whitenoise.runserver_nostatic',
 
 
     # local apps
@@ -58,6 +60,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -66,6 +69,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware', #new
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage,CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'config.urls'
 

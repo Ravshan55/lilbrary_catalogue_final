@@ -12,6 +12,7 @@ django-allauth = "*"
 requests = "*"
 unicorn = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 

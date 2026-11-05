@@ -30,3 +30,4 @@ tzdata==2026.6
 unicorn==2.1.4
 uritemplate==4.2.0
 urllib3==2.8.0
+whitenoise==6.12.0
