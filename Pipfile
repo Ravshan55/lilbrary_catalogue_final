@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==6"
+djangorestframework = "*"
+djangorestframework-stubs = "*"
+dj-rest-auth = "*"
+django-allauth = "*"
+requests = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.14"
