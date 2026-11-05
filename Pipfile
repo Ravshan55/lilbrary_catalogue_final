@@ -10,6 +10,8 @@ djangorestframework-stubs = "*"
 dj-rest-auth = "*"
 django-allauth = "*"
 requests = "*"
+unicorn = "*"
+gunicorn = "*"
 
 [dev-packages]
 

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-
+import os.path
 from pathlib import Path
 
 from django.conf.global_settings import EMAIL_BACKEND, DEFAULT_AUTO_FIELD
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-z8fv4#2hqmbrj(1^ty(6#3rf6y4e#sa%3-+lhce1y2y42x*h5p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -142,6 +142,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD  = 'django.db.models.BigAutoField'
 
